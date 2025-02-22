@@ -1,9 +1,246 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The Gilded Rose updates quality for a new item 1`] = `
-Item {
-  "name": "new item",
-  "quality": 0,
-  "sellIn": -2,
-}
+[
+  Item {
+    "name": "new item",
+    "quality": 0,
+    "sellIn": -2,
+  },
+  Item {
+    "name": "new item",
+    "quality": 0,
+    "sellIn": -2,
+  },
+  Item {
+    "name": "new item",
+    "quality": 49,
+    "sellIn": -2,
+  },
+  Item {
+    "name": "new item",
+    "quality": 0,
+    "sellIn": -1,
+  },
+  Item {
+    "name": "new item",
+    "quality": 0,
+    "sellIn": -1,
+  },
+  Item {
+    "name": "new item",
+    "quality": 49,
+    "sellIn": -1,
+  },
+  Item {
+    "name": "new item",
+    "quality": 0,
+    "sellIn": 5,
+  },
+  Item {
+    "name": "new item",
+    "quality": 0,
+    "sellIn": 5,
+  },
+  Item {
+    "name": "new item",
+    "quality": 50,
+    "sellIn": 5,
+  },
+  Item {
+    "name": "new item",
+    "quality": 0,
+    "sellIn": 12,
+  },
+  Item {
+    "name": "new item",
+    "quality": 0,
+    "sellIn": 12,
+  },
+  Item {
+    "name": "new item",
+    "quality": 50,
+    "sellIn": 12,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 2,
+    "sellIn": -2,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 3,
+    "sellIn": -2,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 51,
+    "sellIn": -2,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 2,
+    "sellIn": -1,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 3,
+    "sellIn": -1,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 51,
+    "sellIn": -1,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 1,
+    "sellIn": 5,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 2,
+    "sellIn": 5,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 51,
+    "sellIn": 5,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 1,
+    "sellIn": 12,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 2,
+    "sellIn": 12,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 51,
+    "sellIn": 12,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sellIn": -2,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sellIn": -2,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sellIn": -2,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sellIn": -1,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sellIn": -1,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sellIn": -1,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 2,
+    "sellIn": 5,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 3,
+    "sellIn": 5,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 51,
+    "sellIn": 5,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 1,
+    "sellIn": 12,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 2,
+    "sellIn": 12,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 51,
+    "sellIn": 12,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 0,
+    "sellIn": -1,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 1,
+    "sellIn": -1,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 51,
+    "sellIn": -1,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 0,
+    "sellIn": 0,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 1,
+    "sellIn": 0,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 51,
+    "sellIn": 0,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 0,
+    "sellIn": 6,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 1,
+    "sellIn": 6,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 51,
+    "sellIn": 6,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 0,
+    "sellIn": 13,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 1,
+    "sellIn": 13,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 51,
+    "sellIn": 13,
+  },
+]
 `;

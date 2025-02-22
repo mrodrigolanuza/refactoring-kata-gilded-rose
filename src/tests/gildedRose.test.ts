@@ -4,7 +4,7 @@ describe('The Gilded Rose', () => {
 	it('updates quality for a new item', () => {
 		const items = generateCombinationOfItemsFrom(
 			['new item', 'Aged Brie', 'Backstage passes to a TAFKAL80ETC concert', 'Sulfuras, Hand of Ragnaros'],
-			[-1, 0, 6, 13],
+			[-1, 0, 3, 6, 13],
 			[0, 1, 51]
 		)
 		

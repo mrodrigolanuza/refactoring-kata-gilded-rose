@@ -4,6 +4,6 @@ exports[`The Gilded Rose updates quality for a new item 1`] = `
 Item {
   "name": "new item",
   "quality": 0,
-  "sellIn": -1,
+  "sellIn": -2,
 }
 `;

@@ -3,9 +3,9 @@ import { Item, GildedRose } from '../core/gildedRose';
 describe('The Gilded Rose', () => {
 	it('updates quality for a new item', () => {
 		const items = generateCombinationOfItems(
-			['new item'], 
-			[0], 
-			[0]			
+			['new item', 'Aged Brie', 'Backstage passes to a TAFKAL80ETC concert', 'Sulfuras, Hand of Ragnaros'], 
+			[-1, 0, 6, 11], 
+			[0, 1, 50]			
 		);
 		
 		const gildedRose = new GildedRose(items);
@@ -20,5 +20,5 @@ function generateCombinationOfItems(names:string[], sellInDays:number[], qualiti
 	return names
 		.flatMap((name) => sellInDays
 			.flatMap( sellInDay => qualities
-				.flatMap(quality => new Item(name, sellInDays, quality))));
+				.flatMap(quality => new Item(name, sellInDay, quality))));
 }

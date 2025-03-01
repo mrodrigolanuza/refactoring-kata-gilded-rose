@@ -14,10 +14,9 @@ export class GildedRose {
 	constructor(public items: Item[]) {	}
 
 	updateQuality() {
-		for (let i = 0; i < this.items.length; i++) {
-			this.updateQualityFor(this.items[i]);
-		}
-
+		this.items.forEach(item => {
+			this.updateQualityFor(item);
+		});
 		return this.items;
 	}
 

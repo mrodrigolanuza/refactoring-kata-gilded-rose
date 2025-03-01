@@ -15,8 +15,7 @@ export class GildedRose {
 
 	updateQuality() {
 		for (let i = 0; i < this.items.length; i++) {
-			const item = this.items[i];
-			this.updateQualityFor(item);
+			this.updateQualityFor(this.items[i]);
 		}
 
 		return this.items;

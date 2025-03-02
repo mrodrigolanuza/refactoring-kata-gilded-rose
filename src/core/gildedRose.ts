@@ -10,6 +10,15 @@ export class Item {
 	}
 }
 
+export class StandardItem {
+	private constructor(public name: string,
+						public sellIn: number,
+						public quality: number) {	}
+	static create(item: Item): StandardItem {
+		return new StandardItem(item.name, item.sellIn, item.quality); 
+	}
+}
+
 export class GildedRose {
 	constructor(public items: Item[]) {	}
 
@@ -20,7 +29,7 @@ export class GildedRose {
 		return this.items;
 	}
 
-	private updateQualityFor(item: Item){
+	private updateQualityFor(item: StandardItem){
 		switch (item.name) {
 			case 'Aged Brie':
 				this.updateAgedBrie(item);
@@ -36,7 +45,7 @@ export class GildedRose {
 		}
 	}
 
-	private updateStandardItem(item: Item) {
+	private updateStandardItem(item: StandardItem) {
 		if (item.quality > 0) {
 			item.quality = item.quality - 1
 		}
@@ -48,7 +57,7 @@ export class GildedRose {
 		}
 	}
 
-	private updateBackStagePass(item: Item) {
+	private updateBackStagePass(item: StandardItem) {
 		if (item.quality < 50) {
 			item.quality = item.quality + 1
 			if (item.sellIn < 11) {
@@ -68,7 +77,7 @@ export class GildedRose {
 		}
 	}
 
-	private updateAgedBrie(item: Item) {
+	private updateAgedBrie(item: StandardItem) {
 		if (item.quality < 50) {
 			item.quality = item.quality + 1
 		}

@@ -11,9 +11,9 @@ export class Item {
 }
 
 export class StandardItem {
-	private constructor(public name: string,
-						public sellIn: number,
-						public quality: number) {	}
+	protected constructor(private name: string,
+						  private sellIn: number,
+						  private quality: number) {	}
 	static create(item: Item): StandardItem {
 		return new StandardItem(item.name, item.sellIn, item.quality); 
 	}
@@ -32,6 +32,10 @@ export class StandardItem {
 				this.updateStandardItem(this);
 				break;
 		}
+	}
+	
+	toString():string {
+		return `Name: ${this.name} | Sell In: ${this.sellIn} | Quality: ${this.quality}`
 	}
 
 	private updateStandardItem(item: StandardItem) {
@@ -77,6 +81,7 @@ export class StandardItem {
 			}
 		}
 	}
+	
 }
 
 export class GildedRose {

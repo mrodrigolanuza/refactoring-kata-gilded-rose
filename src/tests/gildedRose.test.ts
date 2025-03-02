@@ -11,8 +11,8 @@ describe('The Gilded Rose', () => {
 		const gildedRose = new GildedRose(items);
 
 		const updatedItems = gildedRose.updateQuality();
-
-		expect(updatedItems).toMatchSnapshot();
+		
+		expect(updatedItems.map(item => item.toString())).toMatchSnapshot();
 	});
 });
 

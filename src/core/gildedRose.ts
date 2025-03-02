@@ -21,21 +21,18 @@ export class GildedRose {
 	}
 
 	private updateQualityFor(item: Item){
-		const isAgedBrie = item.name == 'Aged Brie';
-		const isBackStagePass = item.name == 'Backstage passes to a TAFKAL80ETC concert';
-		const isSulfuras = item.name == 'Sulfuras, Hand of Ragnaros';
-		if (isAgedBrie) {
-			this.updateAgedBrie(item);
-		} else {
-			if (isBackStagePass) {
+		switch (item.name) {
+			case 'Aged Brie':
+				this.updateAgedBrie(item);
+				break;
+			case 'Backstage passes to a TAFKAL80ETC concert':
 				this.updateBackStagePass(item);
-			} else {
-				if (isSulfuras) {
-					
-				} else {
-					this.updateStandardItem(item);
-				}
-			}
+				break;
+			case 'Sulfuras, Hand of Ragnaros':
+				break;
+			default:
+				this.updateStandardItem(item);
+				break;
 		}
 	}
 

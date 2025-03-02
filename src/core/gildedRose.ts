@@ -17,30 +17,19 @@ export class StandardItem {
 	static create(item: Item): StandardItem {
 		return new StandardItem(item.name, item.sellIn, item.quality); 
 	}
-}
 
-export class GildedRose {
-	constructor(public items: Item[]) {	}
-
-	updateQuality() {
-		this.items.forEach(item => {
-			this.updateQualityFor(item);
-		});
-		return this.items;
-	}
-
-	private updateQualityFor(item: StandardItem){
-		switch (item.name) {
+	updateQuality(){
+		switch (this.name) {
 			case 'Aged Brie':
-				this.updateAgedBrie(item);
+				this.updateAgedBrie(this);
 				break;
 			case 'Backstage passes to a TAFKAL80ETC concert':
-				this.updateBackStagePass(item);
+				this.updateBackStagePass(this);
 				break;
 			case 'Sulfuras, Hand of Ragnaros':
 				break;
 			default:
-				this.updateStandardItem(item);
+				this.updateStandardItem(this);
 				break;
 		}
 	}
@@ -87,5 +76,16 @@ export class GildedRose {
 				item.quality = item.quality + 1
 			}
 		}
+	}
+}
+
+export class GildedRose {
+	constructor(public items: StandardItem[]) {	}
+
+	updateQuality() {
+		this.items.forEach(item => {
+			item.updateQuality();
+		});
+		return this.items;
 	}
 }

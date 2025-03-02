@@ -33,19 +33,24 @@ export class GildedRose {
 				if (isSulfuras) {
 					
 				} else {
-					if (item.quality > 0) {
-						item.quality = item.quality - 1
-					}
-					item.sellIn = item.sellIn - 1;
-					if (item.sellIn < 0) {
-						if (item.quality > 0) {
-							item.quality = item.quality - 1
-						}
-					}
+					this.updateStandardItem(item);
 				}
 			}
 		}
 	}
+
+	private updateStandardItem(item: Item) {
+		if (item.quality > 0) {
+			item.quality = item.quality - 1
+		}
+		item.sellIn = item.sellIn - 1;
+		if (item.sellIn < 0) {
+			if (item.quality > 0) {
+				item.quality = item.quality - 1
+			}
+		}
+	}
+
 	private updateBackStagePass(item: Item) {
 		if (item.quality < 50) {
 			item.quality = item.quality + 1

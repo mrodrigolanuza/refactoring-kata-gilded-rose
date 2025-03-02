@@ -11,77 +11,76 @@ export class Item {
 }
 
 export class StandardItem {
-	protected constructor(private name: string,
-						  private sellIn: number,
-						  private quality: number) {	}
-	static create(item: Item): StandardItem {
-		return new StandardItem(item.name, item.sellIn, item.quality); 
+	protected constructor(protected name: string,
+						  protected sellIn: number,
+						  protected quality: number) {
+	}
+	static createFrom(item: Item): StandardItem {
+		switch (item.name) {
+			case 'Aged Brie':
+				return new AgedBrie(item.name, item.sellIn, item.quality);
+			case 'Backstage passes to a TAFKAL80ETC concert':
+				return new BackStagePass(item.name, item.sellIn, item.quality);
+			case 'Sulfuras, Hand of Ragnaros':
+				return new Sulfuras(item.name, item.sellIn, item.quality);
+			default:
+				return new StandardItem(item.name, item.sellIn, item.quality);
+		}
 	}
 
 	updateQuality(){
-		switch (this.name) {
-			case 'Aged Brie':
-				this.updateAgedBrie(this);
-				break;
-			case 'Backstage passes to a TAFKAL80ETC concert':
-				this.updateBackStagePass(this);
-				break;
-			case 'Sulfuras, Hand of Ragnaros':
-				break;
-			default:
-				this.updateStandardItem(this);
-				break;
+		if (this.quality > 0) {
+			this.quality = this.quality - 1
+		}
+		this.sellIn = this.sellIn - 1;
+		if (this.sellIn < 0) {
+			if (this.quality > 0) {
+				this.quality = this.quality - 1
+			}
 		}
 	}
 	
 	toString():string {
 		return `Name: ${this.name} | Sell In: ${this.sellIn} | Quality: ${this.quality}`
 	}
+}
 
-	private updateStandardItem(item: StandardItem) {
-		if (item.quality > 0) {
-			item.quality = item.quality - 1
+export class AgedBrie extends StandardItem {
+	updateQuality() {
+		if (this.quality < 50) {
+			this.quality = this.quality + 1
 		}
-		item.sellIn = item.sellIn - 1;
-		if (item.sellIn < 0) {
-			if (item.quality > 0) {
-				item.quality = item.quality - 1
+		this.sellIn = this.sellIn - 1;
+		if (this.sellIn < 0) {
+			if (this.quality < 50) {
+				this.quality = this.quality + 1
 			}
 		}
 	}
-
-	private updateBackStagePass(item: StandardItem) {
-		if (item.quality < 50) {
-			item.quality = item.quality + 1
-			if (item.sellIn < 11) {
-				if (item.quality < 50) {
-					item.quality = item.quality + 1
+}
+export class BackStagePass extends StandardItem {
+	updateQuality() {
+		if (this.quality < 50) {
+			this.quality = this.quality + 1
+			if (this.sellIn < 11) {
+				if (this.quality < 50) {
+					this.quality = this.quality + 1
 				}
 			}
-			if (item.sellIn < 6) {
-				if (item.quality < 50) {
-					item.quality = item.quality + 1
+			if (this.sellIn < 6) {
+				if (this.quality < 50) {
+					this.quality = this.quality + 1
 				}
 			}
 		}
-		item.sellIn = item.sellIn - 1;
-		if (item.sellIn < 0) {
-			item.quality = item.quality - item.quality
+		this.sellIn = this.sellIn - 1;
+		if (this.sellIn < 0) {
+			this.quality = this.quality - this.quality
 		}
 	}
-
-	private updateAgedBrie(item: StandardItem) {
-		if (item.quality < 50) {
-			item.quality = item.quality + 1
-		}
-		item.sellIn = item.sellIn - 1;
-		if (item.sellIn < 0) {
-			if (item.quality < 50) {
-				item.quality = item.quality + 1
-			}
-		}
-	}
-	
+}
+export class Sulfuras extends StandardItem {
+	updateQuality() {}
 }
 
 export class GildedRose {

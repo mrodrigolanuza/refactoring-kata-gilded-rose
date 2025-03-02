@@ -1,4 +1,4 @@
-import {Item, GildedRose, StandardItem} from '../core/gildedRose';
+import {GildedRose, Item, StandardItem} from '../core/gildedRose';
 
 describe('The Gilded Rose', () => {
 	it('updates quality for a new item', () => {
@@ -20,7 +20,7 @@ function generateCombinationOfItemsFrom(names:string[], sellinDays: number[], qu
 	return names.flatMap(
 		name => sellinDays.flatMap(
 			sellin => qualities.flatMap(
-				quality => StandardItem.create(new Item(name, sellin, quality)))))
+				quality => StandardItem.createFrom(new Item(name, sellin, quality)))))
 }
 
 function range(from: number, to: number): number[] {

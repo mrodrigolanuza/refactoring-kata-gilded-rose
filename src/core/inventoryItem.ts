@@ -91,23 +91,34 @@ export class BackStagePass implements InventoryItem {
 				private quality: number) {
 	}
 	updateQuality() {
-		if (this.quality < 50) {
-			this.quality = this.quality + 1
-			if (this.sellIn < 11) {
-				if (this.quality < 50) {
-					this.quality = this.quality + 1
-				}
-			}
-			if (this.sellIn < 6) {
-				if (this.quality < 50) {
-					this.quality = this.quality + 1
-				}
-			}
+		const maxQuality = 50;
+		if (this.quality < maxQuality) {
+			this.increaseQuality();
+			this.increaseQualityWhenLowerThan(maxQuality, 11);
+			this.increaseQualityWhenLowerThan(maxQuality, 6);
 		}
-		this.sellIn = this.sellIn - 1;
+		this.decreaseSellIn();
+		this.decreaseQuality();
+	}
+
+	private decreaseQuality() {
 		if (this.sellIn < 0) {
-			this.quality = this.quality - this.quality
+			this.quality = 0;
 		}
+	}
+
+	private increaseQualityWhenLowerThan(maxQuality: number, maxSellIn: number) {
+		if (this.sellIn < maxSellIn && this.quality < maxQuality) {
+			this.increaseQuality();
+		}
+	}
+
+	private decreaseSellIn() {
+		this.sellIn = this.sellIn - 1;
+	}
+
+	private increaseQuality() {
+		this.quality = this.quality + 1
 	}
 
 	toString():string {

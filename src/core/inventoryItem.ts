@@ -63,14 +63,20 @@ export class AgedBrie implements InventoryItem {
 				private quality: number) {
 	}
 	updateQuality() {
+		this.increaseQuality();
+		this.decreaseSellIn();
+		if (this.sellIn < 0) {
+			this.increaseQuality();
+		}
+	}
+
+	private decreaseSellIn() {
+		this.sellIn = this.sellIn - 1;
+	}
+
+	private increaseQuality() {
 		if (this.quality < 50) {
 			this.quality = this.quality + 1
-		}
-		this.sellIn = this.sellIn - 1;
-		if (this.sellIn < 0) {
-			if (this.quality < 50) {
-				this.quality = this.quality + 1
-			}
 		}
 	}
 

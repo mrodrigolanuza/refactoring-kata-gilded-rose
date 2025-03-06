@@ -15,9 +15,9 @@ export interface InventoryItem {
 }
 
 export class StandardItem implements InventoryItem {
-	protected constructor(protected name: string,
-						  protected sellIn: number,
-						  protected quality: number) {
+	private constructor(private name: string, 
+						private sellIn: number, 
+						private quality: number) {
 	}
 	static createFrom(item: Item): InventoryItem {
 		switch (item.name) {
@@ -33,17 +33,25 @@ export class StandardItem implements InventoryItem {
 	}
 
 	updateQuality(){
+		this.decreaseSellIn();
 		if (this.quality > 0) {
-			this.quality = this.quality - 1
+			this.decreaseQuality();
 		}
-		this.sellIn = this.sellIn - 1;
 		if (this.sellIn < 0) {
 			if (this.quality > 0) {
-				this.quality = this.quality - 1
+				this.decreaseQuality();
 			}
 		}
 	}
-	
+
+	private decreaseQuality() {
+		this.quality = this.quality - 1
+	}
+
+	private decreaseSellIn() {
+		this.sellIn = this.sellIn - 1;
+	}
+
 	toString():string {
 		return `Name: ${this.name} | Sell In: ${this.sellIn} | Quality: ${this.quality}`
 	}

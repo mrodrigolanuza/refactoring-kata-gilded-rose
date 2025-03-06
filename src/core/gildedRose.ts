@@ -10,12 +10,16 @@ export class Item {
 	}
 }
 
-export class StandardItem {
+export interface InventoryItem {
+	updateQuality();
+}
+
+export class StandardItem implements InventoryItem {
 	protected constructor(protected name: string,
 						  protected sellIn: number,
 						  protected quality: number) {
 	}
-	static createFrom(item: Item): StandardItem {
+	static createFrom(item: Item): InventoryItem {
 		switch (item.name) {
 			case 'Aged Brie':
 				return new AgedBrie(item.name, item.sellIn, item.quality);
@@ -45,7 +49,11 @@ export class StandardItem {
 	}
 }
 
-export class AgedBrie extends StandardItem {
+export class AgedBrie implements InventoryItem {
+	constructor(private name: string,
+				private sellIn: number,
+				private quality: number) {
+	}
 	updateQuality() {
 		if (this.quality < 50) {
 			this.quality = this.quality + 1
@@ -57,8 +65,16 @@ export class AgedBrie extends StandardItem {
 			}
 		}
 	}
+
+	toString():string {
+		return `Name: ${this.name} | Sell In: ${this.sellIn} | Quality: ${this.quality}`
+	}
 }
-export class BackStagePass extends StandardItem {
+export class BackStagePass implements InventoryItem {
+	constructor(private name: string,
+				private sellIn: number,
+				private quality: number) {
+	}
 	updateQuality() {
 		if (this.quality < 50) {
 			this.quality = this.quality + 1
@@ -78,13 +94,25 @@ export class BackStagePass extends StandardItem {
 			this.quality = this.quality - this.quality
 		}
 	}
+
+	toString():string {
+		return `Name: ${this.name} | Sell In: ${this.sellIn} | Quality: ${this.quality}`
+	}
 }
-export class Sulfuras extends StandardItem {
+export class Sulfuras implements InventoryItem {
+	constructor(private name: string,
+				private sellIn: number,
+				private quality: number) {
+	}
 	updateQuality() {}
+
+	toString():string {
+		return `Name: ${this.name} | Sell In: ${this.sellIn} | Quality: ${this.quality}`
+	}
 }
 
 export class GildedRose {
-	constructor(public items: StandardItem[]) {	}
+	constructor(public items: InventoryItem[]) {	}
 
 	updateQuality() {
 		this.items.forEach(item => {
